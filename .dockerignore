@@ -1,0 +1,10 @@
+**/node_modules
+**/.svelte-kit
+**/bin
+**/obj
+**/.git
+.env
+__ctrl__/.venv
+__ctrl__/.run
+letsencrypt
+

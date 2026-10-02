@@ -1,0 +1,36 @@
+# Dev routes — host processes (Vite + uvicorn) and TLS for *.localhost.
+
+http:
+  routers:
+    dotnet-svelte-backend-host:
+      rule: Host(`api.localhost`)
+      entryPoints:
+        - http
+        - https
+      service: dotnet-svelte-backend-host
+    dotnet-svelte-frontend-host:
+      rule: Host(`dashboard.localhost`)
+      entryPoints:
+        - http
+        - https
+      service: dotnet-svelte-frontend-host
+
+  services:
+    dotnet-svelte-backend-host:
+      loadBalancer:
+        servers:
+          - url: http://host.docker.internal:8000
+    dotnet-svelte-frontend-host:
+      loadBalancer:
+        servers:
+          - url: http://host.docker.internal:5000
+
+tls:
+  stores:
+    default:
+      defaultGeneratedCert:
+        resolver: default
+        domain:
+          main: localhost
+          sans:
+            - "*.localhost"
