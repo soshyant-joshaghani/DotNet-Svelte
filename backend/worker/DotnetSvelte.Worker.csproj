@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>DotnetSvelte.Worker</RootNamespace>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <StartupObject>DotnetSvelte.Worker.WorkerProgram</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../src/DotnetSvelte.Api.csproj" />
+  </ItemGroup>
+
+</Project>
